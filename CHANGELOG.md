@@ -1,17 +1,106 @@
-# Changelog
-All notable changes to this project will be documented in this file.
+Version 4.6.0 *(In development)*
+--------------------------------
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
-- `Added` for new features.
-- `Changed` for changes in existing functionality.
-- `Deprecated` for soon-to-be removed features.
-- `Removed` for now removed features.
-- `Fixed` for any bug fixes.
-- `Security` in case of vulnerabilities.
+Version 4.5.0 *(2022-11-02)*
+----------------------------
 
-## [4.0.1] - unreleased
+- README: Slightly improve the Migration section. [\#520](https://github.com/CanHub/Android-Image-Cropper/pull/520) ([vanniktech](https://github.com/vanniktech))
+- API: Deprecate CropImageView.croppedImage [\#519](https://github.com/CanHub/Android-Image-Cropper/pull/519) ([vanniktech](https://github.com/vanniktech))
+- API: Deprecate CropImageView.isSaveBitmapToInstanceState [\#518](https://github.com/CanHub/Android-Image-Cropper/pull/518) ([vanniktech](https://github.com/vanniktech))
+- API: Remove deprecated methods from Version 4.4.0 in CropImageContractOption. [\#513](https://github.com/CanHub/Android-Image-Cropper/pull/513) ([vanniktech](https://github.com/vanniktech))
+- API: Remove deprecated methods from Version 4.4.0 in CropImage. [\#512](https://github.com/CanHub/Android-Image-Cropper/pull/512) ([vanniktech](https://github.com/vanniktech))
+- Behavior Change: Always try to return resized bitmap in CropResult. [\#509](https://github.com/CanHub/Android-Image-Cropper/pull/509) ([vanniktech](https://github.com/vanniktech))
+- Behavior Change: The crop area for CropShapes \(Rectangle, Rectangle vertical only, Rectangle horizontal only\) can now also be adjusted by dragging outside the Crop Area just like it's always been possible for CropShape.OVAL. [\#508](https://github.com/CanHub/Android-Image-Cropper/pull/508) ([vanniktech](https://github.com/vanniktech))
+
+Version 4.4.0 *(2022-10-24)*
+----------------------------
+
+- API: CropImageOptions is now a data class. Currently with mutable properties, this will change to immutable soon. [\#490](https://github.com/CanHub/Android-Image-Cropper/pull/490) ([vanniktech](https://github.com/vanniktech))
+- API: CropImageView gets a setImageCropOptions method. [\#500](https://github.com/CanHub/Android-Image-Cropper/pull/500) ([vanniktech](https://github.com/vanniktech))
+- API: Deprecate CropImageContractOptions functions to modify CropImageOptions instance. [\#492](https://github.com/CanHub/Android-Image-Cropper/pull/492) ([vanniktech](https://github.com/vanniktech))
+- API: Make BitmapCroppingWorkerJob internal. [\#478](https://github.com/CanHub/Android-Image-Cropper/pull/478) ([vanniktech](https://github.com/vanniktech))
+- API: Make BitmapLoadingWorkerJob internal. [\#465](https://github.com/CanHub/Android-Image-Cropper/pull/465) ([vanniktech](https://github.com/vanniktech))
+- API: Make CropException inner objects internal. [\#470](https://github.com/CanHub/Android-Image-Cropper/pull/470) ([vanniktech](https://github.com/vanniktech))
+- API: Make CropImageIntentChooser internal. [\#485](https://github.com/CanHub/Android-Image-Cropper/pull/485) ([vanniktech](https://github.com/vanniktech))
+- API: Make CropImageOptions class final. [\#487](https://github.com/CanHub/Android-Image-Cropper/pull/487) ([vanniktech](https://github.com/vanniktech))
+- API: Make CropOverlayView internal. [\#468](https://github.com/CanHub/Android-Image-Cropper/pull/468) ([vanniktech](https://github.com/vanniktech))
+- API: Make CropWindowMoveHandler & CropWindowHandler internal. [\#467](https://github.com/CanHub/Android-Image-Cropper/pull/467) ([vanniktech](https://github.com/vanniktech))
+- Behavior Change: By default always show the guidelines. [\#494](https://github.com/CanHub/Android-Image-Cropper/pull/494) ([vanniktech](https://github.com/vanniktech))
+- Behavior change: By default show crop window on the entire image. [\#474](https://github.com/CanHub/Android-Image-Cropper/pull/474) ([vanniktech](https://github.com/vanniktech))
+- Deprecate: CropImage\#get\* functions are now deprecated as they seem to be unused. [\#469](https://github.com/CanHub/Android-Image-Cropper/pull/469) ([vanniktech](https://github.com/vanniktech))
+- New API: CropImageView\#expectedImageSize which returns the expected image size, if cropping the image right now. [\#496](https://github.com/CanHub/Android-Image-Cropper/pull/496) ([vanniktech](https://github.com/vanniktech))
+- Raise minSdk from 16 to 21. [\#456](https://github.com/CanHub/Android-Image-Cropper/pull/456) ([vanniktech](https://github.com/vanniktech))
+- Sample: Enable StrictMode. [\#464](https://github.com/CanHub/Android-Image-Cropper/pull/464) ([vanniktech](https://github.com/vanniktech))
+- Sample: Showcase expectedImageSize in CustomActivity. [\#503](https://github.com/CanHub/Android-Image-Cropper/pull/503) ([vanniktech](https://github.com/vanniktech))
+- Strict Mode: Fix UnsafeIntentLaunchViolation when using CropImageActivity. [\#502](https://github.com/CanHub/Android-Image-Cropper/pull/502) ([vanniktech](https://github.com/vanniktech))
+
+In addition, this release contains a lot of documentation fixes and refactorings.
+
+Version 4.3.3 *(2022-10-19)*
+----------------------------
+
+⚠️ Maven Coordinates have changed ⚠️
+
+This library will no longer be published to Jitpack. The Maven Coordinates have changed, and the library is now on Maven Central. In order to consume the new update please change:
+
+```diff
+-implementation("com.github.CanHub:Android-Image-Cropper:4.3.2")
++implementation("com.vanniktech:android-image-cropper:4.3.3")
+```
+
+For now, everything else stays the same. [vanniktech](https://github.com/vanniktech) has taken over the maintenance of this library.
+
+- Kotlin Build Script, proper Maven Publishing, new workflows, Gradle Catalogue & much more [\#450](https://github.com/CanHub/Android-Image-Cropper/pull/450) ([vanniktech](https://github.com/vanniktech))
+- Correctly close resources in BitmapUtils. [\#440](https://github.com/CanHub/Android-Image-Cropper/pull/440) ([vanniktech](https://github.com/vanniktech))
+- Bugfix/437 setting toolbar color to white does nothing [\#438](https://github.com/CanHub/Android-Image-Cropper/pull/438) ([Devenom1](https://github.com/Devenom1))
+
+## [4.3.2] - 08/09/2022
+### Fixed
+- Fixed the mistake in hindi conversion of "Crop" [#402](https://github.com/CanHub/Android-Image-Cropper/issues/402)
+- Added the option to set custom color to toolbar of CropImageActivity [#421](https://github.com/CanHub/Android-Image-Cropper/issues/421)
+- Added the option to set custom background color to activity of CropImageActivity [#421](https://github.com/CanHub/Android-Image-Cropper/issues/421)
+- Fixed accidentally swiping back on newer Android devices when trying to resize the crop window [#423](https://github.com/CanHub/Android-Image-Cropper/issues/423)
+- Fixed an issue on sample project where back button would not work when dialog is shown [#427](https://github.com/CanHub/Android-Image-Cropper/issues/427)
+- Fixed an issue on sample project where cancelling/going back would go to a screen with empty image [#427](https://github.com/CanHub/Android-Image-Cropper/issues/427)
+
+## [4.3.1] - 20/07/2022
+### Fix
+- CropImageView: Added support for handling all EXIF orientation values. [#408](https://github.com/CanHub/Android-Image-Cropper/issues/408)
+- CropImageView: Use customOutputUri instance property as a fallback in startCropWorkerTask. [#401](https://github.com/CanHub/Android-Image-Cropper/issues/401)
+
+### Added
+- CropImageOptions: Option to change progress bar color. [#390](https://github.com/CanHub/Android-Image-Cropper/issues/390)
+
+## [4.3.0] - 10/06/2022
+### Added
+- Added a helper text on top of crop overlay which moves along with it. [#381](https://github.com/CanHub/Android-Image-Cropper/issues/381)
+
+### Fixed
+- The translation of `Camera` and `Gallery` does not exist in some languages.[#358](https://github.com/CanHub/Android-Image-Cropper/issues/358)
+
+## [4.2.1] - 04/04/2022
+### Added
+- Added support for optionally displaying an intent chooser when selecting image source. [#325](https://github.com/CanHub/Android-Image-Cropper/issues/325)
+### Changed
+- CropException sealed class with cancellation and Image exceptions  [#332](https://github.com/CanHub/Android-Image-Cropper/issues/332)
+### Fixed
+- Fix disable closing AlertDialog when touching outside the dialog [#334](https://github.com/CanHub/Android-Image-Cropper/issues/334)
+
+## [4.2.0] - 21/03/2022
+### Added
+- Added an option to skip manual editing and return entire image when required [#324](https://github.com/CanHub/Android-Image-Cropper/pull/324)
+### Fixed
+- Added missing support for `ScaleType.CENTER_CROP` [#220](https://github.com/CanHub/Android-Image-Cropper/issues/220)
+- State is now preserved across configuration changes [#296](https://github.com/CanHub/Android-Image-Cropper/issues/296)
+- Fix shadow bug [#261](https://github.com/CanHub/Android-Image-Cropper/issues/261)
+### Changed
+- Update portuguese strings [#321](https://github.com/CanHub/Android-Image-Cropper/issues/321)
+
+## [4.1.0] - 02/02/2022
 ### Fixed
 - When TakePictureContract returns false or null return null result.  [#287](https://github.com/CanHub/Android-Image-Cropper/issues/287)
+### Added
+- Added provision to add Oval crop corners when the crop style is Rectangle [#305](https://github.com/CanHub/Android-Image-Cropper/issues/305)
 
 
 ## [4.0.0] - 30/11/21
@@ -99,7 +188,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Fixed
 - ENOENT (no such file or directory) [#99](https://github.com/CanHub/Android-Image-Cropper/issues/99)
-- `content://` instead of `file://` [#83](https://github.com/CanHub/Android-Image-Cropper/issues/83) [#84](https://github.com/CanHub/Android-Image-Cropper/issues/84) 
+- `content://` instead of `file://` [#83](https://github.com/CanHub/Android-Image-Cropper/issues/83) [#84](https://github.com/CanHub/Android-Image-Cropper/issues/84)
 
 ## [2.3.2-alpha] - 12/04/21
 ### Added
